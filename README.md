@@ -68,7 +68,7 @@ tada-frontend/
 
 각 도메인은 `api/`, `components/`, `hooks/`, `types/`(필요 시 `utils/`) 폴더로 구성합니다. `app/page.tsx`는 각 도메인의 섹션/모달을 조립만 하는 얇은 파일로 유지합니다.
 
-자세한 구조와 결정 배경은 `[frontend_directory_structure.md](./frontend_directory_structure.md)`를 참고하세요.
+현재 구현 구조는 [`domains/`](./domains/)와 [`app/`](./app/)에서 직접 확인할 수 있습니다.
 
 ---
 
@@ -255,9 +255,13 @@ npx tsc --noEmit
 
 
 
-## 참고 문서
+## 실제 코드 및 관련 저장소
 
-- `[frontend_directory_structure.md](./frontend_directory_structure.md)`: 프론트엔드 구조, 네이밍, 확정된 결정 사항
-- `[tada_directory_structure.md](./tada_directory_structure.md)`: 백엔드 패키지 구조
-- `PR-*-review.md`: PR 코드 리뷰 기록
+- [인물 큐레이터 UI](./domains/curator/)
+- [일기 UI](./domains/diary/)
+- [앱 레이아웃 및 라우팅](./app/)
+- [TADA 백엔드 저장소](https://github.com/hanyx-00/tada-was)
+- [백엔드 인물 큐레이터 구현](https://github.com/hanyx-00/tada-was/tree/main/src/main/java/com/tada/tada/curator)
+
+이 README는 실제 코드 구조를 중심으로 설명합니다. 별도 설계 문서는 저장소에 존재하는 경우에만 연결합니다.
 
