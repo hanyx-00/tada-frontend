@@ -8,7 +8,6 @@
 
 ## 기술 스택
 
-
 | 구분          | 사용 기술                                                   |
 | ----------- | ------------------------------------------------------- |
 | 프레임워크       | Next.js 16 (App Router), React 19, TypeScript           |
@@ -16,7 +15,6 @@
 | 서버 상태 / API | TanStack Query + `fetch` 래퍼 (axios, zustand, Redux 미사용) |
 | 랜딩 페이지 스크롤  | Swiper                                                  |
 | 린트 / 포맷     | ESLint 9 (`eslint-config-next`), Prettier               |
-
 
 ## 시작하기
 
@@ -27,13 +25,10 @@ npm run dev        # http://localhost:3000
 
 환경 변수는 `.env.local`에 설정합니다.
 
-
 | 변수                           | 설명                                               |
 | ---------------------------- | ------------------------------------------------ |
 | `NEXT_PUBLIC_API_BASE_URL`   | 백엔드 API 주소 (소셜 로그인 기본값은 `http://localhost:8080`) |
 | `DIARY_ANALYSIS_WEBHOOK_URL` | 일기 제목/키워드 분석 웹훅 (`app/api/generate-title`에서 사용)  |
-
-
 
 | 스크립트                                      | 설명               |
 | ----------------------------------------- | ---------------- |
@@ -42,10 +37,7 @@ npm run dev        # http://localhost:3000
 | `npm run lint`                            | ESLint           |
 | `npm run format` / `npm run format:check` | Prettier 적용 / 검사 |
 
-
 ---
-
-
 
 ## 프로젝트 구조
 
@@ -72,11 +64,7 @@ tada-frontend/
 
 ---
 
-
-
 ## 기능 소개
-
-
 
 ### 게스트 랜딩 (`domains/guest`)
 
@@ -84,15 +72,11 @@ tada-frontend/
 - Swiper로 휠 한 번에 섹션 하나씩 넘어가는 풀페이지 스크롤이며, 마지막 섹션 이후에는 전역 Footer로 이어집니다.
 - "회원가입하고 시작하기" 버튼으로 회원가입 모달을 엽니다.
 
-
-
 ### 인증 (`domains/auth`)
 
 - 아이디/비밀번호 로그인과 회원가입, 소셜 로그인(Google/Kakao)을 모달로 제공합니다.
 - accessToken은 메모리(`shared/lib/token-store.ts`)에만 두고, refreshToken은 sessionStorage에 보관합니다.
 - 401 응답 시 `/api/auth/reissue`로 accessToken을 재발급하고 원 요청을 1회 재시도합니다. 앱 부팅 시 refreshToken이 있으면 조용히 복원해서 새로고침해도 로그인이 유지됩니다.
-
-
 
 ### 캘린더 (`domains/calendar`)
 
@@ -100,8 +84,6 @@ tada-frontend/
 - 연/월 휠 피커로 월을 이동합니다.
 - 빈 날짜를 누르면 일기 작성 모달, 채워진 날짜를 누르면 일기 상세 모달이 열립니다. 페이지 이동은 없습니다.
 - 일기를 휴지통 영역으로 드래그해서 삭제할 수 있습니다.
-
-
 
 ### 일기 작성 / 상세 / 휴지통 (`domains/diary`)
 
@@ -116,22 +98,16 @@ tada-frontend/
 
 - 지금까지 생성된 스티커를 모아 보는 그리드 패널입니다. 정렬 옵션과 페이지네이션을 지원합니다.
 
-
-
 ### 검색 (`domains/search`)
 
 - 일기 내용을 자연어로 물어보는 AI 검색 모달입니다.
 - 결과는 무한 스크롤이 아니라 페이지네이션으로 보여주고, 결과가 많으면 최대 15개까지만 보여줍니다.
 - 결과를 누르면 일기 상세 모달이 열립니다. 스티커가 없는 일기는 폴백 이미지를 사용합니다.
 
-
-
 ### 큐레이터 (`domains/curator`)
 
 - **내 기록 속 사람들:** 일기에 등장한 인물을 자동으로 모아 보여주고, 인물별 타임라인, 기록, 추억을 확인할 수 있습니다. 잘못 인식된 인물은 교정할 수 있습니다.
 - **다시 꺼내본 일기:** 지난 일기를 다시 꺼내 보여주는 패널입니다.
-
-
 
 ### 사이드 패널 (`app/SidePanels.tsx`)
 
@@ -139,11 +115,7 @@ tada-frontend/
 
 ---
 
-
-
 ## 개발 컨벤션
-
-
 
 ### 브랜치 / PR
 
@@ -152,12 +124,9 @@ tada-frontend/
 - 다른 도메인 폴더(`domains/*`)는 담당자를 확인하고 수정합니다. `shared/**`는 공통 영역이라 변경 시 담당자와 먼저 논의합니다.
 - PR은 팀장의 리뷰를 받고 머지합니다. 리뷰 반영 후에는 같은 브랜치에 커밋을 추가합니다.
 
-
-
 ### 커밋 메시지
 
 `type: 한글 설명` 형식을 사용합니다. 도메인을 밝히고 싶으면 `type(scope): 설명`도 가능합니다 (예: `fix(search): ...`).
-
 
 | type       | 용도                      |
 | ---------- | ----------------------- |
@@ -168,14 +137,11 @@ tada-frontend/
 | `chore`    | 설정, 의존성, 파일 정리          |
 | `docs`     | 문서, 이미지 등               |
 
-
 ```
 feat: 게스트 랜딩페이지 풀페이지 스크롤 추가
 fix(search): 검색 페이지 이동 시 재임베딩 제거
 chore: 사용하지 않는 스티커 이미지 삭제
 ```
-
-
 
 ### PR 전 체크
 
@@ -190,14 +156,9 @@ npx tsc --noEmit
 
 ---
 
-
-
 ## 코드 컨벤션
 
-
-
 ### 파일 / 이름
-
 
 | 종류                    | 규칙                            | 예시                                    |
 | --------------------- | ----------------------------- | ------------------------------------- |
@@ -208,9 +169,6 @@ npx tsc --noEmit
 | Props 타입              | `{컴포넌트명}Props`                | `DiaryCardProps`                      |
 | Request / Response 타입 | 백엔드 DTO 이름 그대로                | `CreateDiaryRequest`, `DiaryResponse` |
 
-
-
-
 ### 변수 / 함수
 
 - 변수와 함수는 camelCase, 상수는 UPPER_SNAKE_CASE (`MAX_TITLE_LENGTH`).
@@ -220,22 +178,16 @@ npx tsc --noEmit
   - 단건 조회 `getDiary(id)`, 목록 조회 `getAllDiaries()`
   - 생성 `createDiary(form)`, 수정 `updateDiary(id, form)`, 삭제 `deleteDiary(id)`
 
-
-
 ### 데이터 호출
 
 - **컴포넌트에서** `fetch`**를 직접 호출하지 않습니다.** `domains/*/api/*.ts`의 함수를 `domains/*/hooks/`에서 `useQuery` / `useMutation`으로 감싸 컴포넌트에 노출합니다.
 - API 경로는 백엔드 URL 규칙을 그대로 사용하고, 각 도메인의 `api/*.ts`는 자기 도메인 경로만 호출합니다.
 - 서버와 대응되지 않는 순수 UI 상태(모달, 토글)만 `useState` / `useContext`로 처리합니다.
 
-
-
 ### 보안
 
 - `dangerouslySetInnerHTML`을 사용하지 않습니다. 일기 내용 등은 `{content}`로만 렌더링하고, 검색어 하이라이트는 `<mark>` JSX로 처리합니다.
 - 토큰을 `localStorage`에 저장하지 않습니다.
-
-
 
 ### 스타일 / 포맷
 
@@ -245,15 +197,11 @@ npx tsc --noEmit
 - 스타일은 Tailwind 유틸리티 클래스를 우선 사용하고, 색상 표기는 대소문자를 통일합니다 (예: `#F97316`).
 - 주석은 한글로, "무엇"보다 "왜 이렇게 했는지"를 적습니다.
 
-
-
 ### 폰트
 
 - 세방고딕(`--font-sebang-gothic`), 교보 손글씨(`--font-kyobo-handwriting`)는 `app/layout.tsx`에서 로드합니다. 일기 본문은 손글씨 폰트를 사용합니다.
 
 ---
-
-
 
 ## 실제 코드 및 관련 저장소
 
@@ -262,6 +210,4 @@ npx tsc --noEmit
 - [앱 레이아웃 및 라우팅](./app/)
 - [TADA 백엔드 저장소](https://github.com/hanyx-00/tada-was)
 - [백엔드 인물 큐레이터 구현](https://github.com/hanyx-00/tada-was/tree/main/src/main/java/com/tada/tada/curator)
-
-이 README는 실제 코드 구조를 중심으로 설명합니다. 별도 설계 문서는 저장소에 존재하는 경우에만 연결합니다.
 
