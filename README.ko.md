@@ -1,4 +1,6 @@
-# TADA (타다) Frontend
+# TADA (타다) Frontend（한국어 README · 팀 공통）
+
+> 日本語のポートフォリオ版は [README.md](./README.md) をご覧ください。
 
 > 하루를 적으면, AI가 그림으로 남겨드려요.
 
